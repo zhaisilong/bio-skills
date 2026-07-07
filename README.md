@@ -7,9 +7,15 @@ Portable Codex skills for recurring repository and bioinformatics workflows.
 Clone the public skills repository and inspect available skills:
 
 ```bash
-git clone https://github.com/zhaisilong/bio-skills.git
-cd bio-skills
+git clone https://github.com/zhaisilong/bio-skills.git "$HOME/.bio-skill"
+cd "$HOME/.bio-skill"
 find .codex/skills -maxdepth 2 -name SKILL.md -print
+```
+
+Update the local checkout later with:
+
+```bash
+git -C "$HOME/.bio-skill" pull
 ```
 
 ## Layout
@@ -24,6 +30,7 @@ find .codex/skills -maxdepth 2 -name SKILL.md -print
 Copy a skill directory into the target repository's Codex skills directory:
 
 ```bash
+cd "$HOME/.bio-skill"
 mkdir -p <target-repo>/.codex/skills
 cp -R .codex/skills/change-steward <target-repo>/.codex/skills/
 ```
@@ -33,6 +40,7 @@ cp -R .codex/skills/change-steward <target-repo>/.codex/skills/
 Copy every skill in this repository into a target project:
 
 ```bash
+cd "$HOME/.bio-skill"
 mkdir -p <target-repo>/.codex/skills
 cp -R .codex/skills/* <target-repo>/.codex/skills/
 ```
@@ -42,6 +50,7 @@ cp -R .codex/skills/* <target-repo>/.codex/skills/
 Copy a skill into the personal Codex skills directory:
 
 ```bash
+cd "$HOME/.bio-skill"
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R .codex/skills/change-steward "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
